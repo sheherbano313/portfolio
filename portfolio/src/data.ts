@@ -2,7 +2,7 @@
    Add a project: copy one object in PROJECTS, paste it, change the fields.
    Add a category: add one object to CATEGORIES and extend CategoryId in types.ts.
    Text in [square brackets] shows as a yellow to-do on the page. */
-import type { Category, Job, Project } from "./types";
+import type { Category, Job, Project, Seo, SocialLink } from "./types";
 
 export const PROFILE = {
   name: "Sheher Bano",
@@ -27,7 +27,20 @@ export const PROFILE = {
   linkedin: "https://www.linkedin.com/in/sheherbano05",
   email: "sheherbano6231@gmail.com",
   phone: "+92-349-6539580",
-  cv: "cv.pdf", // put your CV in the public/ folder with this name
+  cv: "/cv.pdf", // put your CV in the public/ folder with this name — button hides while the file is missing
+};
+
+export const SOCIALS: SocialLink[] = [
+  { label: "GitHub", url: PROFILE.github },
+  { label: "LinkedIn", url: PROFILE.linkedin },
+  { label: "Email", url: `mailto:${PROFILE.email}` },
+];
+
+// Canonical URL and social-share image. Replace og-image.png with a real
+// 1200x630 image placed in public/ (e.g. public/og-image.png).
+export const SEO: Seo = {
+  url: "https://sheherbano.vercel.app",
+  ogImage: "https://sheherbano.vercel.app/og-image.png",
 };
 
 export const CATEGORIES: Category[] = [
@@ -37,6 +50,10 @@ export const CATEGORIES: Category[] = [
   { id: "ai", name: "AI & NLP", blurb: "AI applications, pattern recognition, and intelligent systems." },
 ];
 
+// Optional fields per project (leave out until you have real content — they stay hidden):
+//   problem:  "What real problem this solves"
+//   approach: "How you approached it (methods, tools, pipeline)"
+//   result:   "Measurable outcome (leave blank rather than guessing)"
 export const PROJECTS: Project[] = [
   {
     cat: "ml",

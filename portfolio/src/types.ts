@@ -9,7 +9,10 @@ export interface Category {
 export interface Project {
   cat: CategoryId;
   title: string;
-  desc: string; // text in [square brackets] shows as a yellow to-do
+  desc: string;
+  problem?: string; // hidden in the UI until filled in
+  approach?: string; // hidden in the UI until filled in
+  result?: string; // measurable outcome; hidden in the UI until filled in
   tech: string[];
   github?: string;
   demo?: string; // leave empty to hide the button
@@ -21,4 +24,14 @@ export interface Job {
   when: string;
   points: string[];
   link?: string;
+}
+
+export interface SocialLink {
+  label: string;
+  url: string;
+}
+
+export interface Seo {
+  url: string; // canonical + og:url
+  ogImage: string; // absolute URL
 }
